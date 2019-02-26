@@ -1,0 +1,40 @@
+<h1 style="padding-top: 10px; padding-bottom: 10px;"><%= @event.name %></h1>
+
+
+<br/>
+
+<h3>Date: <%= @event.date %></h3>
+<h3>Location: <%= @event.location %></h3>
+
+<br/>
+
+<hr/>
+
+<br/>
+
+<p><%= @event.description %></p>
+
+<br/>
+
+<a class="btn btn-primary btn-lg btn-block" href="/events">All Upcoming Events</a>
+
+<br/>
+
+<br/>
+
+<% if @event.user_id == current_user.id %>
+  <a class="btn btn-info btn-lg btn-block" href="/events/<%= @event.id %>/edit">Edit event</a>
+
+  <br/>
+  <br/>
+
+  <a class="btn btn-info btn-lg btn-block" href="/users/<%= @user.id %>">Your Events</a>
+
+  <br />
+  <br />
+
+  <form method="POST" action="/events/<%= @event.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-danger btn-lg btn-block" value="Cancel Event">
+  </form>
+ <% end %> 
