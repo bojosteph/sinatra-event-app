@@ -1,0 +1,20 @@
+<h2 style="padding-top: 10Ppx; padding-bottom: 10px;">Participants for <%= @rsvp_events.first.event.name %></h2>
+
+<div class="row">
+  
+  <% @rsvp_events.each do |rsvp| %>
+        
+    <ul>
+      <li><strong><%= rsvp.user.full_name %></strong></li>
+      <li>email : <%= rsvp.user.email %></li>         
+    </ul>         
+
+  <% end %>
+
+</div>
+
+
+<form method="POST" action="/user_rsvp_events/<%= @rsvp_events.first.event_id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" class="btn btn-danger btn-lg btn-block" value="Cancel Rsvp Event">
+</form>

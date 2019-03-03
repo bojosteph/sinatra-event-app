@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     params.each do |label, input|
       if input.empty?
         flash[:user_error] = "Please enter a value for #{label}"
-        redirect to "/signup"
+        redirect to "/events/new"
       end
     end
     user = current_user

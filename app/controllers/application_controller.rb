@@ -17,7 +17,6 @@ class ApplicationController < Sinatra::Base
   helpers do 
 
     def current_user
-      puts session.inspect
       session[:user_id] && User.find_by(id: session[:user_id])
     end
 
@@ -25,16 +24,12 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    def ensure_logged_in
-      unless logged_in?
-        flash[:error] = "You must be logged in to view this page."
-        redirect "/login"
-      end
-    end
   end
+end
+
 
     
-end
+
 
 
 

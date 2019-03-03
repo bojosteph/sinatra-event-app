@@ -6,6 +6,7 @@ end
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL']) if ENV['DATABASE_URL']
 use Rack::MethodOverride
+use RsvpEventsController
 use UsersController
 use EventsController
 run ApplicationController

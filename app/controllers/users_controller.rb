@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       end
     end
 
-    user = User.create(:username => params["username"], :email => params["email"], :password => params["password"])
+    user = User.create(:username => params["username"], :email => params["email"], :password => params["password"], :full_name => params["full_name"])
     session[:user_id] = user.id
 
     redirect to "/events"
@@ -62,6 +62,7 @@ class UsersController < ApplicationController
       redirect to "/"
     end
   end
+
   
 end
   
