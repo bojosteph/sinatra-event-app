@@ -14,6 +14,10 @@ class ApplicationController < Sinatra::Base
     erb :"/index.html"
   end
 
+  get "/sass.css" do
+    scss :styles
+  end
+
   helpers do 
 
     def current_user
