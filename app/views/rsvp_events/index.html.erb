@@ -1,17 +1,28 @@
-<h3 style="padding-top: 10Ppx; padding-bottom: 10px;"><%= @user.full_name %> Rsvp Events</h3>
+<h3 style="padding-top: 10Ppx; padding-bottom: 10px;">
+  <%= @user.full_name %> Rsvp Events</h3>
 
 <div class="row">
-
+  <% if @rsvp_events.empty? %>
+  <h3>You Currently Dont Have an RSVP Events</h3>
+  <% end %>
   <% @rsvp_events.each do |rsvp| %>
 
   <div class="col-sm" style="padding-bottom: 10px;">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
 
-        <h5 class="card-title"><%= rsvp.event.name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= rsvp.event.date %></h6>
-        <h6 class="card-subtitle mb-2 text-muted"><%= rsvp.event.location %></h6>
-        <p class="card-text"><%= rsvp.event.description.truncate(25, separator: /\s/) %></p>
+        <h5 class="card-title">
+          <%= rsvp.event.name %>
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <%= rsvp.event.date %>
+        </h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <%= rsvp.event.location %>
+        </h6>
+        <p class="card-text">
+          <%= rsvp.event.description.truncate(25, separator: /\s/) %>
+        </p>
         <a href="/rsvp_events/<%= rsvp.id %>" class="card-link">Rsvp Details</a>
 
       </div>
@@ -24,8 +35,3 @@
   <% end %>
 
 </div>
-
-
-
-
-     

@@ -1,13 +1,18 @@
-<h2 style="padding-top: 10Ppx; padding-bottom: 10px;">Participants for <%= @rsvp_events.first.event.name %></h2>
+<h2 style="padding-top: 10Ppx; padding-bottom: 10px;">Participants for
+  <%= @rsvp_events.first.event.name %>
+</h2>
 
 <div class="row">
-  
+
   <% @rsvp_events.each do |rsvp| %>
-        
-    <ul>
-      <li><strong><%= rsvp.user.full_name %></strong></li>
-      <li>email : <%= rsvp.user.email %></li>         
-    </ul>         
+
+  <ul>
+    <li><strong>
+        <%= rsvp.user.full_name %></strong></li>
+    <li>email :
+      <%= rsvp.user.email %>
+    </li>
+  </ul>
 
   <% end %>
 
