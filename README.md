@@ -3,10 +3,13 @@ Welcome to Sinatra Event App!
 
 
 
+Installation, Usage & Development
+Clone this repository to your computer and run the following commands in your terminal:
 
-Development
-After checking out the repo, run bin/setup to install dependencies. You can also run bin/console for an interactive prompt that will allow you to experiment.
-
+1.bundle install
+2.rake db:migrate
+3.shotgun
+4.Then navigate to localhost:9393 in your browser to see it in action.
 
 
 Contributing

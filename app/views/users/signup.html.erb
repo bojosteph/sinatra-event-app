@@ -1,22 +1,24 @@
 <h1 style="padding-top: 10px; padding-bottom: 10px;">Create Account</h1>
 
-<form action="/signup" method="POST">
+
+<form   action="/signup" name="registration" method="POST">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" name="username"  placeholder="Enter username">
+    <input type="text" class="form-control" id="username" name="username" required placeholder="Enter username">
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+    <input type="text" class="form-control" id="email" name="email" required placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="text" class="form-control" id="password" name="password" placeholder="Enter password">
+    <input type="text" class="form-control" id="password" name="password" required placeholder="Enter password">
   </div>
   <div class="form-group">
     <label for="full_name">Full Name</label>
-    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Enter Full Name">
+    <input type="text" class="form-control" id="full_name" name="full_name" required placeholder="Enter Full Name">
   </div>
   <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
 
 </form>
+
