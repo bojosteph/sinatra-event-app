@@ -1,5 +1,6 @@
 
 class UsersController < ApplicationController
+  
   get '/signup' do
     params.each do |label, input|
       if input.empty?

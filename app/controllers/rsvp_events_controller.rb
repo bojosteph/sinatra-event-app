@@ -55,6 +55,6 @@ class RsvpEventsController < ApplicationController
     @rsvp_event.delete_all
     @rsvp_event
     flash[:message] = 'You Have Cancelled This Event Please Notify Participants of Cancellation'
-    redirect to '/rsvp_events'
+    redirect to '/events'
   end
 end

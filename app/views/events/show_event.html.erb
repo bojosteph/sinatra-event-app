@@ -1,53 +1,53 @@
 <div class="container">
-<h2 style="padding-top: 12px; padding-bottom: 12px;">
+  <h2 style="padding-top: 12px; padding-bottom: 12px;">
 
-  <%= @event.name %>
-</h2>
-<br />
+    <%= @event.name %>
+  </h2>
+  <br />
 
-<h4>Date:
-  <%= @event.date %>
-</h4>
-<h4>Location:
-  <%= @event.location %>
-</h4>
-<br />
-<hr />
-<br />
-<p>
-  <h5>
-    <%= @event.description %>
-  </h5>
-</p>
-<br />
-<a class="btn btn-outline-primary btn-lg btn-block" href="/events">All Upcoming Events</a>
-<br />
-<% if @event.user_id == current_user.id %>
-<a class="btn btn-outline-info btn-lg btn-block" href="/events/<%= @event.id %>/edit">Edit Event</a>
-<br />
-<a class="btn btn-outline-info btn-lg btn-block" href="/users/<%= @user.id %>">Your Events</a>
-<br />
+  <h4>Date:
+    <%= @event.date %>
+  </h4>
+  <h4>Location:
+    <%= @event.location %>
+  </h4>
+  <br />
+  <hr />
+  <br />
+  <p>
+    <h5>Description:
+      <%= @event.description %>
+    </h5>
+  </p>
+  <br />
+  <a class="btn btn-outline-primary btn-lg btn-block" href="/events">All Upcoming Events</a>
+  <br />
+  <% if @event.user_id == current_user.id %>
+  <a class="btn btn-outline-info btn-lg btn-block" href="/events/<%= @event.id %>/edit">Edit Event</a>
+  <br />
+  <a class="btn btn-outline-info btn-lg btn-block" href="/users/<%= @user.id %>">Your Events</a>
+  <br />
 
-<a class="btn btn-outline-info btn-lg btn-block" href="/user_rsvp_events/<%= @event.id %>">Event Participants</a>
-<br />
+  <a class="btn btn-outline-info btn-lg btn-block" href="/user_rsvp_events/<%= @event.id %>">Event Participants</a>
+  <br />
 
-<form method="POST" action="/events/<%= @event.id %>/delete">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" class="btn btn-outline-danger btn-lg btn-block" value="Cancel Event">
-</form>
-<% end %>
-<br />
-<br />
-<% if @event.user_id != current_user.id %>
-<form action="/rsvp_events" method="POST">
-  <div class="form-group">
-    <input type="hidden" class="form-control" id="event_id" name="event_id" value=<%=@event.id %> >
-  </div>
-  <div class="form-group">
-    <input type="hidden" class="form-control" id="user_id" name="user_id" value=<%=current_user.id %>>
-  </div>
-  <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up to this events</button>
-</form>
+  <form method="POST" action="/events/<%= @event.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-outline-danger btn-lg btn-block" value="Cancel Event">
+  </form>
+  <% end %>
+  <br />
+  <br />
+  <% if @event.user_id != current_user.id %>
+  <form action="/rsvp_events" method="POST">
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="event_id" name="event_id" value=<%=@event.id %> >
+    </div>
+    <div class="form-group">
+      <input type="hidden" class="form-control" id="user_id" name="user_id" value=<%=current_user.id %>>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up to this events</button>
+  </form>
 
-<% end %>
+  <% end %>
 </div>

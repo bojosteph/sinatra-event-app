@@ -1,47 +1,47 @@
 <div class="container">
-<h1 style="padding-top: 10px; padding-bottom: 10px;">
-  <%= @rsvp_event.event.name %>
-</h1>
+  <h1 style="padding-top: 10px; padding-bottom: 10px;">
+    <%= @rsvp_event.event.name %>
+  </h1>
 
 
-<br />
+  <br />
 
-<h3>Date:
-  <%= @rsvp_event.event.date %>
-</h3>
-<h3>Location:
-  <%= @rsvp_event.event.location %>
-</h3>
+  <h3>Date:
+    <%= @rsvp_event.event.date %>
+  </h3>
+  <h3>Location:
+    <%= @rsvp_event.event.location %>
+  </h3>
 
-<br />
+  <br />
 
-<hr />
+  <hr />
 
-<br />
+  <br />
 
-<p>
-  <h5>
-    <%= @rsvp_event.event.description %>
-  </h5>
-</p>
+  <p>
+    <h5>
+      <%= @rsvp_event.event.description %>
+    </h5>
+  </p>
 
-<br />
+  <br />
 
 
 
-<br />
+  <br />
 
-<br />
+  <br />
 
-<% if @rsvp_event.user_id == current_user.id %>
+  <% if @rsvp_event.user_id == current_user.id %>
 
-<a class="btn btn-outline-info btn-lg btn-block" href="/rsvp_events">Your Rsvp Events</a>
-<br />
-<br />
-<form method="POST" action="/rsvp_events/<%= @rsvp_event.id %>/delete">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" class="btn btn-outline-danger btn-lg btn-block" value="Cancel Rsvp Event">
-</form>
+  <a class="btn btn-outline-info btn-lg btn-block" href="/rsvp_events">Your Rsvp Events</a>
+  <br />
+  <br />
+  <form method="POST" action="/rsvp_events/<%= @rsvp_event.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-outline-danger btn-lg btn-block" value="Cancel Rsvp Event">
+  </form>
 
-<% end %>
+  <% end %>
 </div>
