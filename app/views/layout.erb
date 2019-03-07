@@ -13,16 +13,12 @@
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous">
   <title>SinatraEventApp</title>
-  <style>
-    .navbar-brand {
-  color: white;
-}
-</style>
+  <link rel="stylesheet" href="/stylesheets/main.css" />
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Sinatra Event App</a>
+    <a class="navbar-brand" href="/">Sinatra Event App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-targets="#navbarNav" aria-controls="navBarNav"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,16 +53,15 @@
 
   </nav>
 
-  <div class="container">
 
-    <%= styled_flash%>
-    <%= yield %>
 
-    <footer class="branding">
-      <small>&copy; 2019 <strong>SinatraEventApp</strong></small>
-    </footer>
+  <%= styled_flash%>
+  <%= yield %>
 
-  </div>
+  <footer class="branding">
+    <p>&copy; 2018 <strong>SinatraEventApp</strong></p>
+  </footer>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

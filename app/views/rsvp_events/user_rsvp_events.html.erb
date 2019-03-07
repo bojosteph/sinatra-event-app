@@ -1,25 +1,28 @@
-<h2 style="padding-top: 10Ppx; padding-bottom: 10px;">Participants for
-  <%= @rsvp_events.first.event.name %>
-</h2>
+<div class="container">
+  <h2 class="display-4" align="center" style="padding-top: 10Ppx; color:black;  padding-bottom: 10px;">Participants for
+    <%= @rsvp_events.first.event.name %>
+  </h2>
 
-<div class="row">
+  <div class="row">
 
-  <% @rsvp_events.each do |rsvp| %>
+    <% @rsvp_events.each do |rsvp| %>
 
-  <ul>
-    <li><strong>
-        <%= rsvp.user.full_name %></strong></li>
-    <li>email :
-      <%= rsvp.user.email %>
-    </li>
-  </ul>
+    <ul>
+      <li>
+        <%= rsvp.user.full_name %>
+      </li>
+      <li> email :
+        <%= rsvp.user.email %>
+      </li>
+    </ul>
 
-  <% end %>
+    <% end %>
 
+  </div>
+
+
+  <form method="POST" action="/user_rsvp_events/<%= @rsvp_events.first.event_id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-danger btn-small" value="Cancel Rsvp Event">
+  </form>
 </div>
-
-
-<form method="POST" action="/user_rsvp_events/<%= @rsvp_events.first.event_id %>/delete">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" class="btn btn-danger btn-lg btn-block" value="Cancel Rsvp Event">
-</form>
