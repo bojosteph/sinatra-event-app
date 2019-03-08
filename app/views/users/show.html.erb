@@ -2,6 +2,10 @@
   <h2 class="display-2" align="center" style="padding-top: 10Ppx; color:black; padding-bottom: 10px;">All Your Events</h2>
 
   <div class="row">
+    <% if @user.events.empty? %>
+    <h3 class="display-4" style="padding-top: 10Ppx; color:violet;  padding-bottom: 10px;">You Currently Don't Have any
+      Created Events</h3>
+    <% end %>
 
     <% @user.events.each do |event| %>
 
