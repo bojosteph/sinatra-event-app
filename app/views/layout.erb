@@ -35,12 +35,25 @@
         <li class="nav-item">
           <a class="nav-link" href="/logout">Log Out</a>
         </li>
-        <li class="nav-item">
-          <% @user = current_user %>
-          <a class="nav-link" href="/users/<%= @user.id %>">Your Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/rsvp_events">Your Rsvp</a>
+
+
+        <li class="nav-item dropdown">
+          <div class="btn-group">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="/events">Upcoming Events</a>
+              <a class="dropdown-item" href="/events/new">Create Events</a>
+              <% @user = current_user %>
+              <a class="dropdown-item" href="/users/<%= @user.id %>">Your Events</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/rsvp_events">Events You Rsvp</a>
+              <a class="dropdown-item" href="/logout">Log Out</a>
+            </div>
+          </div>
         </li>
 
         <% end %>
@@ -62,10 +75,10 @@
   <%= styled_flash%>
   <%= yield %>
 
-  <footer class="branding">
-    <p>&copy; 2018 <strong>SinatraEventApp</strong></p>
-  </footer>
 
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="#">&copy; 2019<strong> SinatraEventApp</strong></a>
+  </nav>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
