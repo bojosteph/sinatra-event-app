@@ -6,10 +6,15 @@ Welcome to Sinatra Event App!
 Installation, Usage & Development
 Clone this repository to your computer and run the following commands in your terminal:
 
-1.bundle install
-2.rake db:migrate
-3.shotgun
-4.Then navigate to localhost:9393 in your browser to see it in action.
+<p>1.bundle install</p>
+<p>2.rake db:migrate</p>
+<p>3.shotgun</p>
+<p>4.Then navigate to localhost:9393 in your browser to see it in action.</p>
+<p>5.If You Encounter Issue with Session Secret you can change this in <p>
+<code>
+Application Controller :
+set :session_secret, ENV.fetch('SESSION_SECRET')
+</code>
 
 
 Contributing
