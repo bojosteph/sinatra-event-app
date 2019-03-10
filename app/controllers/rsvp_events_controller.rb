@@ -31,7 +31,11 @@ class RsvpEventsController < ApplicationController
     redirect to '/login' unless logged_in?
     @user = current_user
     @rsvp_events = RsvpEvent.where(event_id: params[:id])
-    redirect to '/rsvp_events' if @rsvp_events.empty?
+    if @rsvp_events.empty?
+      flash[:no_participant_error] = "You Have No Event Participants at This Time"
+      redirect to "/events"
+    end
+    
 
     erb :"rsvp_events/user_rsvp_events.html"
   end
