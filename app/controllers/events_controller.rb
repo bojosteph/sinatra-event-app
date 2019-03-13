@@ -65,11 +65,13 @@ class EventsController < ApplicationController
   delete '/events/:id/delete' do
     redirect to '/login' unless logged_in?
     @event = Event.find(params[:id])
+    @rsvp_event = RsvpEvent.where(event_id: params[:id])
+
     if current_user.id != @event.user_id
       flash[:wrong_user] = 'You can only delete your events'
       redirect to '/events'
     end
-    @event.delete
+    @event.delete && @rsvp_event.delete_all
     redirect to '/events'
   end
 end

@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     register Sinatra::Flash
     enable :sessions
-    set :session_secret, ENV.fetch('SESSION_SECRET')
+    set :session_secret, "secret"
   end
 
   get '/' do

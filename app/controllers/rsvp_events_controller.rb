@@ -55,8 +55,9 @@ class RsvpEventsController < ApplicationController
   delete '/user_rsvp_events/:id/delete' do
     redirect to '/login' unless logged_in?
     @rsvp_event = RsvpEvent.where(event_id: params[:id])
+    @event = Event.find(params[:id])
 
-    @rsvp_event.delete_all
+    @rsvp_event.delete_all && @event.delete
     @rsvp_event
     flash[:message] = 'You Have Cancelled This Event Please Notify Participants of Cancellation'
     redirect to '/events'
