@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     user = current_user
     @event = Event.create(name: params[:name], date: params[:date], location: params[:location], description: params[:description], user_id: user.id)
 
-    redirect to '/events'
+    redirect to "/users/#{user.id}"
   end
 
   get '/events/:id' do
@@ -64,6 +64,7 @@ class EventsController < ApplicationController
 
   delete '/events/:id/delete' do
     redirect to '/login' unless logged_in?
+    @user = current_user
     @event = Event.find(params[:id])
     @rsvp_event = RsvpEvent.where(event_id: params[:id])
 
@@ -72,6 +73,6 @@ class EventsController < ApplicationController
       redirect to '/events'
     end
     @event.delete && @rsvp_event.delete_all
-    redirect to '/events'
+    redirect to "/users/#{@user.id}"
   end
 end
