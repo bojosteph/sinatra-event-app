@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20190301023045) do
 
   create_table "rsvp_events", force: :cascade do |t|
     t.integer "event_id"
+    t.string  "name"
     t.integer "user_id"
   end
 
