@@ -7,7 +7,7 @@ Installation, Usage & Development
 Clone this repository to your computer and run the following commands in your terminal:
 
 <p>1.bundle install</p>
-<p>2.rake db:migrate</p>
+<p>2. run rake db:migrate and rake db:seed</p>
 <p>3.shotgun</p>
 <p>4.Then navigate to localhost:9393 in your browser to see it in action.</p>
 <p>5.If You Encounter Issue with Session Secret you can change this in <p>
