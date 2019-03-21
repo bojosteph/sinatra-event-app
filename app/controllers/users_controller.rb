@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     user = User.find_by(username: params['username'])
+    session[:message] = " You Successfully Logged In #{user.full_name}"
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
@@ -52,6 +53,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     if logged_in?
+      flash[:message] = 'You Have Successfully Logged Out'
       session.clear
       redirect to '/login'
     else

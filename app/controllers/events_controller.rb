@@ -1,8 +1,10 @@
 
 
 class EventsController < ApplicationController
+  
   get '/events' do
     if logged_in?
+      @message = session.delete(:message)
       @events = Event.all
       erb :"/events/index.html"
     else
@@ -28,6 +30,7 @@ class EventsController < ApplicationController
     user = current_user
     @event = Event.create(name: params[:name], date: params[:date], location: params[:location], description: params[:description], user_id: user.id)
 
+    flash[:message] = "You Have Succesfully Created #{@event.name} Event"
     redirect to "/users/#{user.id}"
   end
 
@@ -72,6 +75,7 @@ class EventsController < ApplicationController
       flash[:wrong_user] = 'You can only delete your events'
       redirect to '/events'
     end
+    flash[:message] = "You Have Succesfully Deleted #{@event.name} Event"
     @event.delete && @rsvp_event.delete_all
     redirect to "/users/#{@user.id}"
   end
