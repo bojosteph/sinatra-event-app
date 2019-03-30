@@ -3,7 +3,7 @@ class RsvpEventsController < ApplicationController
   get '/rsvp_events' do
     if logged_in?
       @user = current_user
-      @rsvp_events = RsvpEvent.where(user_id: current_user.id)
+      @rsvp_events = RsvpEvent.where(user: @user)
       erb :"/rsvp_events/index.html"
     else
       flash[:error] = 'You are not currently logged in!'
@@ -13,10 +13,9 @@ class RsvpEventsController < ApplicationController
 
   post '/rsvp_events' do
     user = current_user
-    rsvp_event = RsvpEvent.find_or_create_by(event_id: params[:event_id], user_id: user.id)
     event = Event.find(params[:event_id])
-    event.id = rsvp_event.event_id
-    event.save
+    rsvp_event = user.rsvp_events.find_or_create_by(event: event)
+    
     redirect to '/rsvp_events'
   end
 

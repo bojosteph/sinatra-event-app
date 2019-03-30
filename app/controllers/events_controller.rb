@@ -28,7 +28,8 @@ class EventsController < ApplicationController
       end
     end
     user = current_user
-    @event = Event.create(name: params[:name], date: params[:date], location: params[:location], description: params[:description], user_id: user.id)
+    @event = user.events.build(name: params[:name], date: params[:date], location: params[:location], description: params[:description])
+    @event.save
 
     flash[:message] = "You Have Succesfully Created #{@event.name} Event"
     redirect to "/users/#{user.id}"
@@ -69,7 +70,7 @@ class EventsController < ApplicationController
     redirect to '/login' unless logged_in?
     @user = current_user
     @event = Event.find(params[:id])
-    @rsvp_event = RsvpEvent.where(event_id: params[:id])
+    @rsvp_event = RsvpEvent.where(event: @event)
 
     if current_user.id != @event.user_id
       flash[:wrong_user] = 'You can only delete your events'
