@@ -19,8 +19,7 @@ set :session_secret, ENV.fetch('SESSION_SECRET')
 put mp4 file in public/images/mp4 <br>
 change name of file in app/views/index.html.erb to add your own mp4 file in welcome page <br>
 <code>
-<source src="/images/mp4/Mt_Baker.mp4" type="video/mp4">
-    </video>
+source src="/images/mp4/Mt_Baker.mp4" type="video/mp4"
 </code>
 
 
