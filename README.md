@@ -12,9 +12,17 @@ Clone this repository to your computer and run the following commands in your te
 <p>4.Then navigate to localhost:9393 in your browser to see it in action.</p>
 <p>5.If You Encounter Issue with Session Secret you can change this in <p>
 <code>
-Application Controller :
+Application Controller :<br>
 set :session_secret, ENV.fetch('SESSION_SECRET')
 </code>
+
+put mp4 file in public/images/mp4 <br>
+change name of file in app/views/index.html.erb to add your own mp4 file in welcome page <br>
+<code>
+<source src="/images/mp4/Mt_Baker.mp4" type="video/mp4">
+    </video>
+</code>
+
 
 
 Contributing
